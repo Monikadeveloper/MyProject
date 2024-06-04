@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
-const Screen4=()=>{
+const Screen6=()=>{
 
 return(<View>
    <Image
@@ -10,39 +10,68 @@ return(<View>
           }}
           style={styles.logo}
         />
-        <View style={{display:'flex',justifyContent:'space-evenly',flexDirection:'row'}}>
-            <TouchableOpacity style={styles.button1}>
-                <Text style={styles.text1}>Events</Text>
+        <View style={{display:'flex',justifyContent:'space-evenly',flexDirection:'row',marginBottom:20}}>
+            <TouchableOpacity style={styles.button2}>
+                <Text style={styles.text2}>Events</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button2}>
                 <Text style={styles.text2}>FAQ</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button2}>
-                <Text style={styles.text2}>Educate</Text>
+            <TouchableOpacity style={styles.button1}>
+                <Text style={styles.text1}>Educate</Text>
             </TouchableOpacity>
         </View>
-        <View style={styles.view2}>
-            
-        <Image
+       <View style={styles.view3}>
+<Text style={styles.text4}>
+What is waste ?    </Text>
+
+<TouchableOpacity><Image
           source={{
-            uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/d3c1caaeb4c4eb10146adbcf97adafa8.jpeg',
+            uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/download.png',
           }}
-          style={styles.image3}/>
-        </View>
-        <Text style={styles.text3}>Kibera Clean up 16th May 2023</Text>
+          style={styles.image3}
+        /></TouchableOpacity>
 
-        <View style={styles.view2}>
-            
-       
-        </View>
-        <Text style={styles.text3}>Kisumu Recycling Bins installation
-19th May 2023</Text>
+       </View>
+       <View style={styles.view4}>
+<Text style={styles.text4}>
+Waste Management   </Text>
 
-        <View style={styles.view2}>
-            
+<TouchableOpacity><Image
+          source={{
+            uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/download.png',
+          }}
+          style={styles.image3}
+        /></TouchableOpacity>
+  
+
+       </View>
+       <View style={styles.view3}>
+<Text style={styles.text4}>
+Importance of waster management  </Text>
+
+<TouchableOpacity><Image
+          source={{
+            uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/download.png',
+          }}
+          style={styles.image3}
+        /></TouchableOpacity>
+
+       </View>
+       <View style={styles.view3}>
+<Text style={styles.text4}>
+Types of waste    </Text>
+
+<TouchableOpacity><Image
+          source={{
+            uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/download.png',
+          }}
+          style={styles.image3}
+        /></TouchableOpacity>
+
+       </View>
        
-        </View>
-        <Text style={styles.text3}>Kibera Clean up 16th May 2023</Text>
+        
         <View style={{display:'flex',flexDirection:'row', justifyContent:'space-evenly',backgroundColor:'#528265',height:50,marginTop:10,padding:10}}>
         <TouchableOpacity><Image
           source={{
@@ -74,7 +103,7 @@ return(<View>
 }
 
 
-export default Screen4;
+export default Screen6;
 
 const styles = StyleSheet.create({
    logo:{
@@ -122,7 +151,44 @@ marginBottom:30
     height:25,
     width:28,
     marginLeft:10
- }
+ },
+ 
+ view3:{
+    backgroundColor:'#D2D9D1',
+    height:44,
+    width:298,
+    marginLeft:35,
+    margin:5,
+    borderRadius:10,
+    color:'black',
+    display:'flex',
+    flexDirection:'row',
+    justifyContent:'space-evenly',
+    padding:10
+ }, view4:{
+    backgroundColor:'#D2D9D1',
+    height:217,
+    width:305,
+    marginLeft:35,
+    margin:5,
+    borderRadius:10,
+    color:'black',
+    display:'flex',
+    flexDirection:'row',
+    justifyContent:'space-evenly',
+    padding:10
+ },
+
+ text4:{
+fontSize:16,
+padding:5
+
+ },
+ image3:{
+    height:24,
+    width:24,
+    },
+ 
    
 
   

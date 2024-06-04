@@ -29,6 +29,12 @@ import Register from './Components/Register';
 import Login from './Components/Login';
 import Map from './Components/Map';
 import Screen4 from './Components/Screen4';
+import Screen5 from './Components/Assets/Screen5';
+import Screen6 from './Components/Screen6';
+import Screen7 from './Components/Screen7';
+import Screen8 from './Components/Screen8';
+import Screen9 from './Components/Screen9';
+import Screen10 from './Components/Screen10';
 
 
 
@@ -41,8 +47,13 @@ function App(){
     {/* <Register/> */}
     {/* <Login/> */}
     {/* <Map/> */}
-    <Screen4/>
-    
+    {/* <Screen4/> */}
+    {/* <Screen5/> */}
+    {/* <Screen6/> */}
+{/* <Screen7/> */}
+{/* <Screen8/> */}
+{/* <Screen9/> */}
+<Screen10/>
     </>
   );
 }

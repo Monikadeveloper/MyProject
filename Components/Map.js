@@ -11,6 +11,8 @@ return(<><View>
           style={styles.image}
         />
         </View>
+
+
         <View style={styles.View1}>
         <Image
           source={{
@@ -50,8 +52,7 @@ return(<><View>
           style={styles.image2}
         /></TouchableOpacity>
         </View>
-        
-</View>
+        </View>
 </>)
 }
 
