@@ -1,10 +1,11 @@
 import React from "react";
-import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
-const Screen10=()=>{
+const Screen10=({navigation})=>{
 
 return(<>
-<View>
+<ScrollView>
+<View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
     <View style={{display:'flex',flexDirection:'row',justifyContent:'space-evenely'}}>
    <Image
           source={{
@@ -51,26 +52,26 @@ Devices </Text>
 
 
        </View>
-       <View style={{display:'flex',flexDirection:'row', justifyContent:'space-evenly',backgroundColor:'#528265',height:60,marginTop:100,padding:15}}>
-        <TouchableOpacity><Image
+       <View style={{display:'flex',flexDirection:'row',width:370, justifyContent:'space-evenly',backgroundColor:'#528265',height:60,marginTop:170,padding:15}}>
+        <TouchableOpacity onPress={() => navigation.navigate('Map')}><Image
           source={{
             uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector.png',
           }}
           style={styles.image5}
         /></TouchableOpacity>
-        <TouchableOpacity><Image
+        <TouchableOpacity onPress={() => navigation.navigate('Events')}><Image
           source={{
             uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector2.png',
           }}
           style={styles.image5}
         /></TouchableOpacity>
-        <TouchableOpacity><Image
+        <TouchableOpacity onPress={() => navigation.navigate('location')}><Image
           source={{
             uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector3.png',
           }}
           style={styles.image5}
         /></TouchableOpacity>
-        <TouchableOpacity><Image
+        <TouchableOpacity onPress={() => navigation.navigate('Profile')}><Image
           source={{
             uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector4.png',
           }}
@@ -82,6 +83,7 @@ Devices </Text>
        
        
        </View>
+       </ScrollView>
 </>)
 }
 
@@ -105,7 +107,7 @@ const styles = StyleSheet.create({
       width:295,
       backgroundColor:"#D2D9D1",
       borderRadius:10,
-      marginLeft:40,
+     
       marginTop:30,
       display:'flex',
       justifyContent:'space-between'
@@ -121,7 +123,7 @@ const styles = StyleSheet.create({
      image5:{
       height:21,
       width:25,
-      marginLeft:10,
+     
       padding:1
    },
      text4:{

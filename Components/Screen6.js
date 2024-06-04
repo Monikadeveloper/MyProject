@@ -1,9 +1,10 @@
 import React from "react";
-import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
-const Screen6=()=>{
+const Screen6=({navigation})=>{
 
-return(<View>
+return(
+<ScrollView><View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
    <Image
           source={{
             uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/logo-no-background 1.png',
@@ -11,13 +12,13 @@ return(<View>
           style={styles.logo}
         />
         <View style={{display:'flex',justifyContent:'space-evenly',flexDirection:'row',marginBottom:20}}>
-            <TouchableOpacity style={styles.button2}>
+            <TouchableOpacity style={styles.button2} onPress={() => navigation.navigate('Events')}>
                 <Text style={styles.text2}>Events</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button2}>
+            <TouchableOpacity style={styles.button2} onPress={() => navigation.navigate('FAQ')}>
                 <Text style={styles.text2}>FAQ</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button1}>
+            <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('Educate')} >
                 <Text style={styles.text1}>Educate</Text>
             </TouchableOpacity>
         </View>
@@ -33,6 +34,7 @@ What is waste ?    </Text>
         /></TouchableOpacity>
 
        </View>
+       <View style={{display:'flex',flexDirection:'row',justifyContent:'space-evenly'}}>
        <View style={styles.view4}>
 <Text style={styles.text4}>
 Waste Management   </Text>
@@ -43,9 +45,15 @@ Waste Management   </Text>
           }}
           style={styles.image3}
         /></TouchableOpacity>
-  
-
-       </View>
+        
+  <Text>This are activities that are 
+aimed in the reduction of 
+adverse effects of waste on 
+human health, the environment, 
+planetary resources and 
+aesthetics, by several methods</Text>
+  </View>
+     </View>
        <View style={styles.view3}>
 <Text style={styles.text4}>
 Importance of waster management  </Text>
@@ -72,26 +80,26 @@ Types of waste    </Text>
        </View>
        
         
-        <View style={{display:'flex',flexDirection:'row', justifyContent:'space-evenly',backgroundColor:'#528265',height:50,marginTop:10,padding:10}}>
-        <TouchableOpacity><Image
+        <View style={{display:'flex',flexDirection:'row',width:370, justifyContent:'space-evenly',backgroundColor:'#528265',height:50,marginTop:10,padding:10}}>
+        <TouchableOpacity onPress={() => navigation.navigate('Map')}><Image
           source={{
             uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector.png',
           }}
           style={styles.image2}
-        /></TouchableOpacity>
-        <TouchableOpacity><Image
+        /></TouchableOpacity >
+        <TouchableOpacity onPress={() => navigation.navigate('Events')}><Image
           source={{
             uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector2.png',
           }}
           style={styles.image2}
         /></TouchableOpacity>
-        <TouchableOpacity><Image
+        <TouchableOpacity onPress={() => navigation.navigate('location')}><Image
           source={{
             uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector3.png',
           }}
           style={styles.image2}
         /></TouchableOpacity>
-        <TouchableOpacity><Image
+        <TouchableOpacity onPress={() => navigation.navigate('Profile')}><Image
           source={{
             uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector4.png',
           }}
@@ -99,7 +107,8 @@ Types of waste    </Text>
         /></TouchableOpacity>
         </View>
       
-</View>)
+</View>
+</ScrollView>)
 }
 
 
@@ -109,9 +118,9 @@ const styles = StyleSheet.create({
    logo:{
     width:248,
     height:85,
-    marginTop:30,
-marginLeft:60,
-marginBottom:30
+    marginTop:10,
+// marginLeft:60,
+
    },
    button1:{
     width:87,
@@ -143,7 +152,7 @@ marginBottom:30
     fontSize:16,
     fontWeight:700
    },
-   view2:{height:100, width:299, backgroundColor:'#D9D9D9',margin:10,marginLeft:40},
+   view2:{height:100, width:299, backgroundColor:'#D9D9D9',margin:10},
    image3:{
     height:100,
    },
@@ -157,7 +166,7 @@ marginBottom:30
     backgroundColor:'#D2D9D1',
     height:44,
     width:298,
-    marginLeft:35,
+    // marginLeft:35,
     margin:5,
     borderRadius:10,
     color:'black',
@@ -169,12 +178,12 @@ marginBottom:30
     backgroundColor:'#D2D9D1',
     height:217,
     width:305,
-    marginLeft:35,
+    
     margin:5,
     borderRadius:10,
     color:'black',
     display:'flex',
-    flexDirection:'row',
+    // flexDirection:'row',
     justifyContent:'space-evenly',
     padding:10
  },
@@ -187,6 +196,7 @@ padding:5
  image3:{
     height:24,
     width:24,
+    flexDirection:'flex-end'
     },
  
    

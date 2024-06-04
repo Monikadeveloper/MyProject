@@ -1,9 +1,10 @@
 import React from "react";
-import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
-const Screen9=()=>{
+const Screen9=({navigation})=>{
 
-return(<View>
+return(
+<ScrollView><View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
     <View style={{display:'flex',flexDirection:'row',justifyContent:'space-evenely'}}>
    <Image
           source={{
@@ -41,8 +42,8 @@ Send us an E-mail</Text>
 
 
        </View>
-       <Text style={{fontWeight:600, fontSize:20, color:'#528265',marginLeft:80,marginTop:30}}>Connect with us on :</Text>
-<View style={{display:'flex',flexDirection:'row', justifyContent:'space-evenly',marginTop:20}}>
+       <Text style={{fontWeight:600, fontSize:20, color:'#528265',marginTop:30}}>Connect with us on :</Text>
+<View style={{display:'flex',flexDirection:'row', justifyContent:'space-evenly',margin:20,gap:20}}>
 <Image
           source={{
             uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Facebook.png',
@@ -62,7 +63,7 @@ Send us an E-mail</Text>
           style={styles.image3}
         />
 </View>
-<View style={{display:'flex',flexDirection:'row', justifyContent:'space-evenly',marginTop:30}}>
+<View style={{display:'flex',flexDirection:'row', justifyContent:'space-evenly',marginTop:30,gap:20}}>
 <Image
           source={{
             uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Instagram.png',
@@ -77,26 +78,26 @@ Send us an E-mail</Text>
         />
         
 </View>
-<View style={{display:'flex',flexDirection:'row', justifyContent:'space-evenly',backgroundColor:'#528265',height:60,marginTop:50,padding:15}}>
-        <TouchableOpacity><Image
+<View style={{display:'flex',flexDirection:'row', justifyContent:'space-evenly',backgroundColor:'#528265',width:370,height:60,marginTop:30,padding:15}}>
+        <TouchableOpacity onPress={() => navigation.navigate('Map')}><Image
           source={{
             uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector.png',
           }}
           style={styles.image2}
         /></TouchableOpacity>
-        <TouchableOpacity><Image
+        <TouchableOpacity onPress={() => navigation.navigate('Events')}><Image
           source={{
             uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector2.png',
           }}
           style={styles.image2}
         /></TouchableOpacity>
-        <TouchableOpacity><Image
+        <TouchableOpacity onPress={() => navigation.navigate('location')}><Image
           source={{
             uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector3.png',
           }}
           style={styles.image2}
         /></TouchableOpacity>
-        <TouchableOpacity><Image
+        <TouchableOpacity onPress={() => navigation.navigate('Profile')}><Image
           source={{
             uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector4.png',
           }}
@@ -105,7 +106,8 @@ Send us an E-mail</Text>
         </View>
       
 
-</View>)
+</View>
+</ScrollView>)
 }
 
 
@@ -121,7 +123,7 @@ const styles = StyleSheet.create({
     backgroundColor:'#D2D9D1',
     height:60,
     width:288,
-    marginLeft:35,
+    
     margin:10,
     borderRadius:10,
     color:'black',
@@ -133,7 +135,7 @@ const styles = StyleSheet.create({
  },image2:{
     height:21,
     width:25,
-    marginLeft:10,
+    
     padding:1
  },
  image3:{

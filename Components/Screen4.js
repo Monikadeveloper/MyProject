@@ -1,9 +1,10 @@
 import React from "react";
-import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
-const Screen4=()=>{
+const Screen4=({navigation})=>{
 
-return(<View>
+return(
+<ScrollView><View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
    <Image
           source={{
             uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/logo-no-background 1.png',
@@ -11,14 +12,14 @@ return(<View>
           style={styles.logo}
         />
         <View style={{display:'flex',justifyContent:'space-evenly',flexDirection:'row'}}>
-            <TouchableOpacity style={styles.button1}>
+            <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('Events')}>
                 <Text style={styles.text1}>Events</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button2}>
+            <TouchableOpacity style={styles.button2} onPress={() => navigation.navigate('FAQ')}>
                 <Text style={styles.text2}>FAQ</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button2}>
-                <Text style={styles.text2}>Educate</Text>
+            <TouchableOpacity style={styles.button2} onPress={() => navigation.navigate('Educate')}>
+                <Text style={styles.text2} >Educate</Text>
             </TouchableOpacity>
         </View>
         <View style={styles.view2}>
@@ -43,26 +44,26 @@ return(<View>
        
         </View>
         <Text style={styles.text3}>Kibera Clean up 16th May 2023</Text>
-        <View style={{display:'flex',flexDirection:'row', justifyContent:'space-evenly',backgroundColor:'#528265',height:50,marginTop:10,padding:10}}>
-        <TouchableOpacity><Image
+        <View style={{display:'flex',flexDirection:'row', justifyContent:'space-evenly',backgroundColor:'#528265',height:50,marginTop:20,padding:10,width:370}}>
+        <TouchableOpacity onPress={() => navigation.navigate('Map')}><Image
           source={{
             uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector.png',
           }}
           style={styles.image2}
         /></TouchableOpacity>
-        <TouchableOpacity><Image
+        <TouchableOpacity onPress={() => navigation.navigate('Events')}><Image
           source={{
             uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector2.png',
           }}
           style={styles.image2}
         /></TouchableOpacity>
-        <TouchableOpacity><Image
+        <TouchableOpacity onPress={() => navigation.navigate('location')}><Image
           source={{
             uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector3.png',
           }}
           style={styles.image2}
         /></TouchableOpacity>
-        <TouchableOpacity><Image
+        <TouchableOpacity onPress={() => navigation.navigate('Profile')}><Image
           source={{
             uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector4.png',
           }}
@@ -70,7 +71,8 @@ return(<View>
         /></TouchableOpacity>
         </View>
       
-</View>)
+</View>
+</ScrollView>)
 }
 
 
@@ -80,9 +82,9 @@ const styles = StyleSheet.create({
    logo:{
     width:248,
     height:85,
-    marginTop:30,
-marginLeft:60,
-marginBottom:30
+    marginTop:10,
+
+marginBottom:10
    },
    button1:{
     width:87,
@@ -114,7 +116,7 @@ marginBottom:30
     fontSize:16,
     fontWeight:700
    },
-   view2:{height:100, width:299, backgroundColor:'#D9D9D9',margin:10,marginLeft:40},
+   view2:{height:100, width:299, backgroundColor:'#D9D9D9',margin:5,marginLeft:40},
    image3:{
     height:100,
    },

@@ -1,9 +1,10 @@
 import React from "react";
-import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
-const Screen8=()=>{
+const Screen8=({navigation})=>{
 
-return(<View>
+return(
+<ScrollView><View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
     <View style={{display:'flex',flexDirection:'row',justifyContent:'space-evenely'}}>
    <Image
           source={{
@@ -35,6 +36,7 @@ Points : </Text>
 
        </View>
        <View style={styles.view3}>
+        <TouchableOpacity onPress={() => navigation.navigate('Help')}>
 <Text style={styles.text4}>
 <Image
           source={{
@@ -43,10 +45,11 @@ Points : </Text>
           style={styles.image2}
         />
 Help & Support </Text>
-
+</TouchableOpacity>
 
        </View>
        <View style={styles.view3}>
+        <TouchableOpacity onPress={() => navigation.navigate('Security')}>
 <Text style={styles.text4}>
 <Image
           source={{
@@ -55,10 +58,11 @@ Help & Support </Text>
           style={styles.image2}
         />
 Security & Privacy </Text>
-
+</TouchableOpacity >
 
        </View>
        <View style={styles.view4}>
+        <TouchableOpacity onPress={() => navigation.navigate('Register')}>
 <Text style={styles.text4}>
 <Image
           source={{
@@ -66,37 +70,39 @@ Security & Privacy </Text>
           }}
           style={styles.image3}
         />
-Logout </Text>
+Logout </Text></TouchableOpacity>
 
 
        </View>
-       <View style={{display:'flex',flexDirection:'row', justifyContent:'space-evenly',backgroundColor:'#528265',height:60,marginTop:10,padding:10}}>
-        <TouchableOpacity><Image
+       <View style={{display:'flex',flexDirection:'row',width:370, justifyContent:'space-evenly',backgroundColor:'#528265',height:50,padding:10}}>
+        <TouchableOpacity onPress={() => navigation.navigate('Map')}><Image
           source={{
             uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector.png',
           }}
-          style={styles.image2}
+          style={styles.image4}
         /></TouchableOpacity>
-        <TouchableOpacity><Image
+        <TouchableOpacity onPress={() => navigation.navigate('Events')}><Image
           source={{
             uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector2.png',
           }}
-          style={styles.image2}
-        /></TouchableOpacity>
-        <TouchableOpacity><Image
+          style={styles.image4}
+        /></TouchableOpacity >
+        <TouchableOpacity onPress={() => navigation.navigate('location')}><Image
           source={{
             uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector3.png',
           }}
-          style={styles.image2}
+          style={styles.image4}
         /></TouchableOpacity>
-        <TouchableOpacity><Image
+        <TouchableOpacity onPress={() => navigation.navigate('Profile')}><Image
           source={{
             uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector4.png',
           }}
-          style={styles.image2}
+          style={styles.image4}
         /></TouchableOpacity>
         </View>
-</View>)
+      
+</View>
+</ScrollView>)
 }
 
 
@@ -106,18 +112,18 @@ const styles = StyleSheet.create({
    logo:{
     width:115,
     height:40,
-    marginTop:30,
+    marginTop:10,
    },
    image1:{
     height:44,
     width:173,
-    marginTop:30,
-    marginLeft:10
+    marginTop:10,
+    
    },view3:{
     backgroundColor:'#D2D9D1',
     height:60,
     width:301,
-    marginLeft:35,
+   
     margin:10,
     borderRadius:10,
     color:'black',
@@ -131,7 +137,7 @@ const styles = StyleSheet.create({
     backgroundColor:'#D2D9D1',
     height:60,
     width:301,
-    marginLeft:35,
+    
     margin:10,
     marginTop:40,
     borderRadius:10,
@@ -146,19 +152,18 @@ const styles = StyleSheet.create({
  image2:{
     height:25,
     width:28,
-    marginLeft:10
+   
  },
  text4:{
 fontSize:20,
 fontWeight:600,
 padding:10
  },
- image2:{
-    height:20,
-    width:20,
-    padding:20
+ image4:{
+  height:25,
+  width:28,
   
- },
+},
  image3:{
     height:18,
     width:24,
