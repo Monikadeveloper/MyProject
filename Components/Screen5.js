@@ -121,32 +121,8 @@ What is Chemba and how does it work?    </Text>
        
        
         
-        <View style={{display:'flex',flexDirection:'row',width:370, justifyContent:'space-evenly',backgroundColor:'#528265',height:50,marginTop:0,padding:10}}>
-        <TouchableOpacity onPress={() => navigation.navigate('Map')}><Image
-          source={{
-            uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector.png',
-          }}
-          style={styles.image2}
-        /></TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Events')}><Image
-          source={{
-            uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector2.png',
-          }}
-          style={styles.image2}
-        /></TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('location')}><Image
-          source={{
-            uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector3.png',
-          }}
-          style={styles.image2}
-        /></TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Profile')}><Image
-          source={{
-            uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector4.png',
-          }}
-          style={styles.image2}
-        /></TouchableOpacity>
-        </View>
+       
+      
       
 </View>
 </ScrollView>)

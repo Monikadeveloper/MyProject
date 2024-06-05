@@ -37,11 +37,13 @@ import Screen9 from './Components/Screen9';
 import Screen10 from './Components/Screen10';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import BottomNavigator from './Components/BottomNavigator';
 
 
 
 
 const Stack = createNativeStackNavigator();
+
 
 function App(){
 
@@ -61,7 +63,9 @@ function App(){
         <Stack.Screen name="Profile" component={Screen8} />
         <Stack.Screen name="Help" component={Screen9} />
         <Stack.Screen name="Security" component={Screen10} />
+        
       </Stack.Navigator>
+
     </NavigationContainer>
   
     </>

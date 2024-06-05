@@ -1,23 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import * as yup from 'yup';
 import { Formik } from 'formik'
 
-const loginValidationSchema = yup.object().shape({
-   name:yup.string().min(6,'Please enter full name').max(50).required("Please enter your name"),
-   email: yup
-     .string()
-     .email("Please enter valid email")
-     .required('Email Address is Required'),
-   password: yup
-     .string()
-     .min(8, ({ min }) => `Password must be at least ${min} characters`)
-     .required('Password is required'),
-     basicuser: yup.string().min(6,'Please enter valid types').required('Type required')
- })
+// const loginValidationSchema = yup.object().shape({
+//    name:yup.string().min(6,'Please enter full name').max(50).required("Please enter your name"),
+//    email: yup
+//      .string()
+//      .email("Please enter valid email")
+//      .required('Email Address is Required'),
+//    password: yup
+//      .string()
+//      .min(8, ({ min }) => `Password must be at least ${min} characters`)
+//      .required('Password is required'),
+//      basicuser: yup.string().min(6,'Please enter valid types').required('Type required')
+//  })
  
 const Register = ({ navigation }) => {
+const [name,setName]=useState('');
+const [nameVerify,setNameVerify]=useState(false);
+const [email,setEmail]=useState('');
+const [emailVerify,setEmailVerify]=useState(false);
+const [password,setPassword]=useState('');
+const [passwordVerify,setPasswordVerify]=useState(false);
+const [user,setUser]=useState('');
+const [userVerify,setUserVerify]=useState(false);
    
+const handleName=(e)=>{
+   const namevar=e.nativeEvent.text;
+   setName(namevar);
+   if(namevar.length>1){
+      setNameVerify(true)
+   }
+}
 
    return (
       <ScrollView>
@@ -29,7 +44,7 @@ const Register = ({ navigation }) => {
                   }}
                   style={styles.logo}
                />
-               <Formik
+               {/* <Formik
    validationSchema={loginValidationSchema}
    initialValues={{ name:'',
     email:'',
@@ -47,38 +62,40 @@ const Register = ({ navigation }) => {
      values,
      errors,
      isValid,
-   }) => (<>
+   }) => (<> */}
                <TextInput style={styles.input} placeholder="User Name" placeholderTextColor={'#000000'}
-                  onChangeText={handleChange('name')}
-                  onBlur={handleBlur('name')}
-                  value={values.name} />
-                  {touched.name && errors.name &&
-         <Text style={{ fontSize: 10, color: 'red',textAlign:'center' }}>{errors.name}</Text>}
+               value={name}
+               onChange={(e)=>handleName(e)}/>
+         {/* //          onChangeText={handleChange('name')}
+         //          onBlur={handleBlur('name')}
+         //          value={values.name} />
+         //          {touched.name && errors.name && */}
+         {/* // <Text style={{ fontSize: 10, color: 'red',textAlign:'center' }}>{errors.name}</Text>} */}
 
-               <TextInput style={styles.input} placeholder="Email" placeholderTextColor={'#000000'}
-                 onChangeText={handleChange('email')}
+               <TextInput style={styles.input} placeholder="Email" placeholderTextColor={'#000000'}/>
+                 {/* onChangeText={handleChange('email')}
                  onBlur={handleBlur('email')}
                  value={values.email} />
                  {touched.email && errors.email &&
-         <Text style={{ fontSize: 10, color: 'red',textAlign:'center' }}>{errors.email}</Text>}
+         <Text style={{ fontSize: 10, color: 'red',textAlign:'center' }}>{errors.email}</Text>} */}
 
-               <TextInput style={styles.input} placeholder="Password" placeholderTextColor={'#000000'}
-                 onChangeText={handleChange('password')}
+               <TextInput style={styles.input} placeholder="Password" placeholderTextColor={'#000000'}/>
+                 {/* onChangeText={handleChange('password')}
                  onBlur={handleBlur('password')}
                  value={values.password} />
                  {touched.password && errors.password &&
-         <Text style={{ fontSize: 10, color: 'red',textAlign:'center' }}>{errors.password}</Text>}
+         <Text style={{ fontSize: 10, color: 'red',textAlign:'center' }}>{errors.password}</Text>} */}
                <TextInput style={styles.input1} placeholder="Basic user"
-                  placeholderTextColor={'#000000'} 
-                  onChangeText={handleChange('basicuser')}
+                  placeholderTextColor={'#000000'} />
+                  {/* onChangeText={handleChange('basicuser')}
          onBlur={handleBlur('basicuser')}
          value={values.basicuser} />
          {touched.basicuser && errors.basicuser &&
-         <Text style={{ fontSize: 10, color: 'red',textAlign:'center' }}>{errors.basicuser}</Text>}
-               <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}
-               ><Text style={styles.btntxt}>Sign Up</Text></TouchableOpacity>
-              </>)} 
-              </Formik>
+         <Text style={{ fontSize: 10, color: 'red',textAlign:'center' }}>{errors.basicuser}</Text>} */}
+               <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('login')}>
+                  <Text style={styles.btntxt}>Sign Up</Text></TouchableOpacity>
+              {/* </>)} 
+              </Formik> */}
                <Text style={styles.text2}>Already have an account ?</Text>
                <TouchableOpacity onPress={() => navigation.navigate('Login')}>
                   <Text style={styles.text3}>Sign in</Text></TouchableOpacity>

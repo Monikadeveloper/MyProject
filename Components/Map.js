@@ -1,5 +1,6 @@
 import React from "react";
 import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import BottomNavigator from "./BottomNavigator";
 
 const Map=({navigation})=>{
 
@@ -29,6 +30,7 @@ return(<>
           }}
           style={styles.image1}
         />
+   
         <View style={{display:'flex',flexDirection:'row', justifyContent:'space-evenly',margin:20}}>
         <TouchableOpacity><Image
           source={{
