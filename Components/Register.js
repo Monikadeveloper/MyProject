@@ -1,20 +1,6 @@
 import React, { useState } from "react";
 import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
-import * as yup from 'yup';
-import { Formik } from 'formik'
 
-// const loginValidationSchema = yup.object().shape({
-//    name:yup.string().min(6,'Please enter full name').max(50).required("Please enter your name"),
-//    email: yup
-//      .string()
-//      .email("Please enter valid email")
-//      .required('Email Address is Required'),
-//    password: yup
-//      .string()
-//      .min(8, ({ min }) => `Password must be at least ${min} characters`)
-//      .required('Password is required'),
-//      basicuser: yup.string().min(6,'Please enter valid types').required('Type required')
-//  })
  
 const Register = ({ navigation }) => {
 const [name,setName]=useState('');
@@ -29,8 +15,43 @@ const [userVerify,setUserVerify]=useState(false);
 const handleName=(e)=>{
    const namevar=e.nativeEvent.text;
    setName(namevar);
-   if(namevar.length>1){
+   setNameVerify(false)
+   if(namevar.length>2){
       setNameVerify(true)
+   }
+}
+const handleEmail=(e)=>{
+   const emailvar=e.nativeEvent.text;
+   setEmail(emailvar);
+   setEmailVerify(false)
+   if(/^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,}$/.test(emailvar)){
+      setEmail(emailvar);
+      setEmailVerify(true)
+   }
+}
+const handlePassword=(e)=>{
+   const passwordvar=e.nativeEvent.text;
+   setPassword(passwordvar)
+   setPasswordVerify(false)
+   if(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/.test(passwordvar)){
+      setPassword(passwordvar);
+      setPasswordVerify(true);
+   }
+}
+const handleUser=(e)=>{
+   const uservar=e.nativeEvent.text;
+   setUser(uservar);
+   setUserVerify(false)
+   if(uservar.length>5){
+      setUserVerify(true)
+   }
+}
+const handleLogin=()=>{
+   if(name==="" || email === "" ||password===""|| user===""){
+      console.warn('Please enter details properly')
+   }
+   else{
+      navigation.navigate('Login')
    }
 }
 
@@ -44,58 +65,29 @@ const handleName=(e)=>{
                   }}
                   style={styles.logo}
                />
-               {/* <Formik
-   validationSchema={loginValidationSchema}
-   initialValues={{ name:'',
-    email:'',
-    password:'',
-  
-    basicuser:''
-    }}
-   onSubmit={values => console.log(values)}
- >
-   {({
-     handleChange,
-     handleBlur,
-     handleSubmit,
-     touched,
-     values,
-     errors,
-     isValid,
-   }) => (<> */}
+             
                <TextInput style={styles.input} placeholder="User Name" placeholderTextColor={'#000000'}
                value={name}
                onChange={(e)=>handleName(e)}/>
-         {/* //          onChangeText={handleChange('name')}
-         //          onBlur={handleBlur('name')}
-         //          value={values.name} />
-         //          {touched.name && errors.name && */}
-         {/* // <Text style={{ fontSize: 10, color: 'red',textAlign:'center' }}>{errors.name}</Text>} */}
+         
+{name.length<2?null:nameVerify?null:(<Text style={{color:'red'}}>Name should be more than 2 characters</Text>)}
 
-               <TextInput style={styles.input} placeholder="Email" placeholderTextColor={'#000000'}/>
-                 {/* onChangeText={handleChange('email')}
-                 onBlur={handleBlur('email')}
-                 value={values.email} />
-                 {touched.email && errors.email &&
-         <Text style={{ fontSize: 10, color: 'red',textAlign:'center' }}>{errors.email}</Text>} */}
-
-               <TextInput style={styles.input} placeholder="Password" placeholderTextColor={'#000000'}/>
-                 {/* onChangeText={handleChange('password')}
-                 onBlur={handleBlur('password')}
-                 value={values.password} />
-                 {touched.password && errors.password &&
-         <Text style={{ fontSize: 10, color: 'red',textAlign:'center' }}>{errors.password}</Text>} */}
-               <TextInput style={styles.input1} placeholder="Basic user"
-                  placeholderTextColor={'#000000'} />
-                  {/* onChangeText={handleChange('basicuser')}
-         onBlur={handleBlur('basicuser')}
-         value={values.basicuser} />
-         {touched.basicuser && errors.basicuser &&
-         <Text style={{ fontSize: 10, color: 'red',textAlign:'center' }}>{errors.basicuser}</Text>} */}
-               <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('login')}>
+               <TextInput style={styles.input} placeholder="Email" placeholderTextColor={'#000000'}
+                value={email}
+                onChange={(e)=>handleEmail(e)}/>
+                 {email.length<2?null:emailVerify?null:(<Text style={{color:'red'}}>Please Enter valid email address</Text>)}
+                
+               <TextInput style={styles.input} placeholder="Password" placeholderTextColor={'#000000'}
+               value={password} onChange={(e)=>handlePassword(e)} secureTextEntry={password}/>
+               {password.length<2?null:passwordVerify?null:(<Text style={{color:'red'}}>Please choose strong password</Text>)}
+               
+               <TextInput style={styles.input1} placeholder="Basic user/Garbage Collector / Scrap Dealer"
+                  placeholderTextColor={'#000000'} value={user} onChange={(e)=>handleUser(e)} />
+                  {user.length<2?null:userVerify?null:(<Text style={{color:'red'}}>Please enter valid user type</Text>)}
+                 
+               <TouchableOpacity style={styles.button} onPress={()=>handleLogin()}>
                   <Text style={styles.btntxt}>Sign Up</Text></TouchableOpacity>
-              {/* </>)} 
-              </Formik> */}
+             
                <Text style={styles.text2}>Already have an account ?</Text>
                <TouchableOpacity onPress={() => navigation.navigate('Login')}>
                   <Text style={styles.text3}>Sign in</Text></TouchableOpacity>

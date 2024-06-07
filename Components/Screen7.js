@@ -1,5 +1,6 @@
 import React from "react";
 import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import TopScreen from "./TopScreen";
 
 const Screen7=({navigation})=>{
 
@@ -11,17 +12,7 @@ return(
           }}
           style={styles.logo}
         />
-        <View style={{display:'flex',justifyContent:'space-evenly',flexDirection:'row',marginBottom:20}}>
-            <TouchableOpacity style={styles.button2} onPress={() => navigation.navigate('Events')}>
-                <Text style={styles.text2}>Forecast</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button2} onPress={() => navigation.navigate('FAQ')}>
-                <Text style={styles.text2}>FAQ</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('Educate')}>
-                <Text style={styles.text1}>Educate</Text>
-            </TouchableOpacity>
-        </View>
+        <TopScreen/>
        <View style={styles.view3}>
 <Text style={styles.text4}>
 Type your location   </Text>
@@ -70,32 +61,7 @@ Type your location   </Text>
  </View>
        
         
-        <View style={{display:'flex',flexDirection:'row',width:370, justifyContent:'space-evenly',backgroundColor:'#528265',height:50,marginTop:10,padding:10}}>
-        <TouchableOpacity onPress={() => navigation.navigate('Map')}><Image
-          source={{
-            uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector.png',
-          }}
-          style={styles.image2}
-        /></TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Events')}><Image
-          source={{
-            uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector2.png',
-          }}
-          style={styles.image2}
-        /></TouchableOpacity >
-        <TouchableOpacity onPress={() => navigation.navigate('location')}><Image
-          source={{
-            uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector3.png',
-          }}
-          style={styles.image2}
-        /></TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Profile')}><Image
-          source={{
-            uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector4.png',
-          }}
-          style={styles.image2}
-        /></TouchableOpacity>
-        </View>
+        
       
 </View>
 </ScrollView>)

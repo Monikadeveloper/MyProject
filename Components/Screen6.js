@@ -1,27 +1,13 @@
 import React from "react";
 import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import TopScreen from "./TopScreen";
+
 
 const Screen6=({navigation})=>{
 
 return(
-<ScrollView><View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-   <Image
-          source={{
-            uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/logo-no-background 1.png',
-          }}
-          style={styles.logo}
-        />
-        <View style={{display:'flex',justifyContent:'space-evenly',flexDirection:'row',marginBottom:20}}>
-            <TouchableOpacity style={styles.button2} onPress={() => navigation.navigate('Events')}>
-                <Text style={styles.text2}>Events</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button2} onPress={() => navigation.navigate('FAQ')}>
-                <Text style={styles.text2}>FAQ</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('Educate')} >
-                <Text style={styles.text1}>Educate</Text>
-            </TouchableOpacity>
-        </View>
+<ScrollView>
+  <TopScreen/>
        <View style={styles.view3}>
 <Text style={styles.text4}>
 What is waste ?    </Text>
@@ -80,34 +66,8 @@ Types of waste    </Text>
        </View>
        
         
-        <View style={{display:'flex',flexDirection:'row',width:370, justifyContent:'space-evenly',backgroundColor:'#528265',height:50,marginTop:10,padding:10}}>
-        <TouchableOpacity onPress={() => navigation.navigate('Map')}><Image
-          source={{
-            uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector.png',
-          }}
-          style={styles.image2}
-        /></TouchableOpacity >
-        <TouchableOpacity onPress={() => navigation.navigate('Events')}><Image
-          source={{
-            uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector2.png',
-          }}
-          style={styles.image2}
-        /></TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('location')}><Image
-          source={{
-            uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector3.png',
-          }}
-          style={styles.image2}
-        /></TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Profile')}><Image
-          source={{
-            uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector4.png',
-          }}
-          style={styles.image2}
-        /></TouchableOpacity>
-        </View>
-      
-</View>
+       
+
 </ScrollView>)
 }
 

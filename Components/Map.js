@@ -1,6 +1,7 @@
 import React from "react";
 import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
-import BottomNavigator from "./BottomNavigator";
+import Home from "./Home";
+
 
 const Map=({navigation})=>{
 
@@ -30,7 +31,8 @@ return(<>
           }}
           style={styles.image1}
         />
-   
+  {/* <Home/> */}
+
         <View style={{display:'flex',flexDirection:'row', justifyContent:'space-evenly',margin:20}}>
         <TouchableOpacity><Image
           source={{
@@ -38,7 +40,7 @@ return(<>
           }}
           style={styles.image2}
         /></TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Events')}><Image
+        <TouchableOpacity onPress={() => navigation.navigate('Home')}><Image
           source={{
             uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector2.png',
           }}
@@ -58,6 +60,7 @@ return(<>
         /></TouchableOpacity>
         </View>
         </View>
+    
         </View>
         </ScrollView>
 </>)

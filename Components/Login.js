@@ -1,8 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 const Login = ({ navigation }) => {
+   const [email, setEmail] = useState('');
+   const [emailVerify, setEmailVerify] = useState(false);
+   const [password, setPassword] = useState('');
+   const [passwordVerify, setPasswordVerify] = useState(false)
 
+   const handleEmail = (e) => {
+      const emailvar = e.nativeEvent.text;
+      setEmail(emailvar);
+      setEmailVerify(false)
+      if (/^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,}$/.test(emailvar)) {
+         setEmail(emailvar);
+         setEmailVerify(true)
+      }
+   }
+   const handlePassword = (e) => {
+      const passwordvar = e.nativeEvent.text;
+      setPassword(passwordvar)
+      setPasswordVerify(false)
+      if (/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/.test(passwordvar)) {
+         setPassword(passwordvar);
+         setPasswordVerify(true);
+      }
+   }
+
+   const handleLogin=()=>{
+      if(email==="" || password === ""){
+         console.warn('Please enter email and password')
+      }
+      else{
+         navigation.navigate('Map')
+      }
+   }
    return (
       <ScrollView><View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
          <Image
@@ -12,13 +43,17 @@ const Login = ({ navigation }) => {
             style={styles.logo}
          />
 
-         <TextInput style={styles.input} placeholder="Email" placeholderTextColor={'#000000'} />
-         <TextInput style={styles.input} placeholder="Password" placeholderTextColor={'#000000'} />
+         <TextInput style={styles.input} placeholder="Email" placeholderTextColor={'#000000'}
+            value={email} onChange={(e) => handleEmail(e)} />
+         {email.length < 2 ? null : emailVerify ? null : (<Text style={{ color: 'red' }}>Please Enter valid email address</Text>)}
+         <TextInput style={styles.input} placeholder="Password" secureTextEntry={password} placeholderTextColor={'#000000'}
+            value={password} onChange={(e) => handlePassword(e)} />
+         {password.length < 2 ? null : passwordVerify ? null : (<Text style={{ color: 'red' }}>Please enter password</Text>)}
          <Text style={{ marginLeft: 170 }}>Forgot Password?</Text>
          <TouchableOpacity style={styles.button}
-            onPress={() => navigation.navigate('Map')}><Text style={styles.btntxt}>Sign Up</Text></TouchableOpacity>
+            onPress={()=>handleLogin()}><Text style={styles.btntxt}>Sign Up</Text></TouchableOpacity>
          <Text style={styles.text2}>Don't have an account yet ?</Text>
-         <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+         <TouchableOpacity  onPress={() => navigation.navigate('Register')}>
             <Text style={styles.text3}>Register now</Text></TouchableOpacity>
       </View>
       </ScrollView>)

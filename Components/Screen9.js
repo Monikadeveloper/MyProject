@@ -1,5 +1,6 @@
 import React from "react";
 import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import Home from "./Home";
 
 const Screen9=({navigation})=>{
 
@@ -78,33 +79,7 @@ Send us an E-mail</Text>
         />
         
 </View>
-<View style={{display:'flex',flexDirection:'row', justifyContent:'space-evenly',backgroundColor:'#528265',width:370,height:60,marginTop:30,padding:15}}>
-        <TouchableOpacity onPress={() => navigation.navigate('Map')}><Image
-          source={{
-            uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector.png',
-          }}
-          style={styles.image2}
-        /></TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Events')}><Image
-          source={{
-            uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector2.png',
-          }}
-          style={styles.image2}
-        /></TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('location')}><Image
-          source={{
-            uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector3.png',
-          }}
-          style={styles.image2}
-        /></TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Profile')}><Image
-          source={{
-            uri: '/Users/dr.mac/Desktop/Chemba/MyProject/Components/Assets/Vector4.png',
-          }}
-          style={styles.image2}
-        /></TouchableOpacity>
-        </View>
-      
+  
 
 </View>
 </ScrollView>)
